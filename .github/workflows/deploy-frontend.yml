@@ -38,7 +38,7 @@ jobs:
         working-directory: frontend
         run: npm run build
         env:
-          VITE_API_URL: https://portfolio-api.onrender.com
+          VITE_API_URL: https://portfolio-profissional-dvlh.onrender.com
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

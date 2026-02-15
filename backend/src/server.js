@@ -67,7 +67,12 @@ app.use('/api/auth', authRoutes);
 app.use('/api/projetos', projetoRoutes);
 app.use('/api/perfil', perfilRoutes);
 
-// ---- Rota de saúde ----
+// ---- Rota raiz (health check do Render) ----
+app.get('/', (req, res) => {
+  res.json({ status: 'ok', servico: 'Portfolio API', timestamp: new Date().toISOString() });
+});
+
+// ---- Rota de saúde da API ----
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
