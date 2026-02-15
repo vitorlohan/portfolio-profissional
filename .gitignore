@@ -1,0 +1,10 @@
+# Documentação interna (não versionar)
+docs/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

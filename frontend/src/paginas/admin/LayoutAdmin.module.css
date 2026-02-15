@@ -1,0 +1,156 @@
+/* ============================================
+   Estilos do Layout Admin
+   ============================================ */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  width: 260px;
+  background: var(--cor-fundo-card);
+  border-right: 1px solid var(--cor-borda);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.admin-sidebar__header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.admin-sidebar__logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--cor-texto);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-sidebar__logo span {
+  color: var(--cor-primaria);
+}
+
+.admin-sidebar__subtitle {
+  font-size: 0.8rem;
+  color: var(--cor-texto-claro);
+  margin-top: 0.25rem;
+}
+
+.admin-sidebar__nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.admin-sidebar__link:hover {
+  background: var(--cor-fundo);
+  color: var(--cor-primaria);
+}
+
+.admin-sidebar__link--ativo {
+  color: var(--cor-primaria);
+  background: var(--cor-fundo);
+  border-left-color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+.admin-sidebar__footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.admin-sidebar__sair {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--cor-erro);
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.admin-sidebar__sair:hover {
+  opacity: 0.8;
+}
+
+.admin-conteudo {
+  flex: 1;
+  margin-left: 260px;
+  padding: 2rem;
+  min-height: 100vh;
+  background: var(--cor-fundo);
+}
+
+.admin-conteudo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-conteudo__titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+/* Mobile */
+.admin-menu-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  background: var(--cor-primaria);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .admin-menu-btn {
+    display: flex;
+  }
+
+  .admin-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .admin-sidebar--aberto {
+    transform: translateX(0);
+  }
+
+  .admin-conteudo {
+    margin-left: 0;
+    padding: 1rem;
+    padding-top: 4rem;
+  }
+}

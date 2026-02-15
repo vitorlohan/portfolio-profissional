@@ -1,0 +1,36 @@
+/* ============================================
+   Estilos da Seção de Projetos Destaque
+   ============================================ */
+.projetos {
+  padding: 5rem 0;
+}
+
+.projetos__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.projetos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.projetos__vazio {
+  text-align: center;
+  padding: 3rem;
+  color: var(--cor-texto-secundario);
+}
+
+.projetos__ver-todos {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .projetos__grid {
+    grid-template-columns: 1fr;
+  }
+}

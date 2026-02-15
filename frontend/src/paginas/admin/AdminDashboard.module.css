@@ -1,0 +1,96 @@
+/* ============================================
+   Estilos do Dashboard Admin
+   ============================================ */
+.dashboard__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard__card {
+  background: var(--cor-fundo-card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--cor-borda);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard__card-icone {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--cor-tag-fundo);
+  color: var(--cor-primaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.dashboard__card-texto h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--cor-texto);
+}
+
+.dashboard__card-texto p {
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+}
+
+.dashboard__recentes {
+  background: var(--cor-fundo-card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--cor-borda);
+}
+
+.dashboard__recentes h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--cor-texto);
+}
+
+.dashboard__tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dashboard__tabela th {
+  text-align: left;
+  padding: 0.75rem;
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.dashboard__tabela td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--cor-borda);
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+}
+
+.dashboard__status {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.dashboard__status--publicado {
+  background: rgba(0, 184, 148, 0.15);
+  color: var(--cor-sucesso);
+}
+
+.dashboard__status--rascunho {
+  background: rgba(253, 203, 110, 0.15);
+  color: #e17055;
+}

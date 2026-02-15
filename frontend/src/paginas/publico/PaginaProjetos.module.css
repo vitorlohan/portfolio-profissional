@@ -1,0 +1,130 @@
+/* ============================================
+   Estilos da Página de Projetos
+   ============================================ */
+.pagina-projetos {
+  padding: 3rem 0;
+}
+
+.pagina-projetos__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.pagina-projetos__header {
+  margin-bottom: 2rem;
+}
+
+.pagina-projetos__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.pagina-projetos__filtro {
+  padding: 0.5rem 1.25rem;
+  border-radius: 25px;
+  border: 2px solid var(--cor-borda);
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.pagina-projetos__filtro:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.pagina-projetos__filtro--ativo {
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: #fff;
+}
+
+.pagina-projetos__busca {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.pagina-projetos__input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--cor-borda);
+  border-radius: 10px;
+  background: var(--cor-input-fundo);
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+  max-width: 400px;
+}
+
+.pagina-projetos__input:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+.pagina-projetos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.pagina-projetos__vazio {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--cor-texto-secundario);
+  grid-column: 1 / -1;
+}
+
+.pagina-projetos__vazio h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto);
+}
+
+/* Paginação */
+.paginacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.paginacao__btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  background: var(--cor-fundo-card);
+  color: var(--cor-texto);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paginacao__btn:hover:not(:disabled) {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.paginacao__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.paginacao__btn--ativo {
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .pagina-projetos__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,58 @@
+/* ============================================
+   Estilos da Seção de Contato
+   ============================================ */
+.contato {
+  padding: 5rem 0;
+}
+
+.contato__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.contato__grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contato__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem;
+  background: var(--cor-fundo-card);
+  border-radius: 16px;
+  border: 1px solid var(--cor-borda);
+  min-width: 160px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--cor-texto);
+}
+
+.contato__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--cor-sombra);
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.contato__icone {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+}
+
+.contato__label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.contato__valor {
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+}

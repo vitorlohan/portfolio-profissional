@@ -1,0 +1,223 @@
+/* ============================================
+   Variáveis CSS e Estilos Globais
+   ============================================ */
+
+/* ---- Variáveis de Tema ---- */
+:root,
+[data-tema="claro"] {
+  --cor-primaria: #6c63ff;
+  --cor-primaria-hover: #5a52d5;
+  --cor-secundaria: #ff6584;
+  --cor-fundo: #f8f9fa;
+  --cor-fundo-card: #ffffff;
+  --cor-fundo-nav: rgba(255, 255, 255, 0.95);
+  --cor-texto: #2d3436;
+  --cor-texto-secundario: #636e72;
+  --cor-texto-claro: #b2bec3;
+  --cor-borda: #e0e0e0;
+  --cor-sombra: rgba(0, 0, 0, 0.08);
+  --cor-sombra-forte: rgba(0, 0, 0, 0.15);
+  --cor-sucesso: #00b894;
+  --cor-erro: #e74c3c;
+  --cor-aviso: #fdcb6e;
+  --cor-tag-fundo: #f0efff;
+  --cor-tag-texto: #6c63ff;
+  --cor-input-fundo: #ffffff;
+  --cor-input-borda: #ddd;
+  --gradiente-hero: linear-gradient(135deg, #6c63ff 0%, #ff6584 100%);
+}
+
+[data-tema="escuro"] {
+  --cor-primaria: #7c75ff;
+  --cor-primaria-hover: #6c63ff;
+  --cor-secundaria: #ff6584;
+  --cor-fundo: #0f0f23;
+  --cor-fundo-card: #1a1a2e;
+  --cor-fundo-nav: rgba(15, 15, 35, 0.95);
+  --cor-texto: #e0e0e0;
+  --cor-texto-secundario: #a0a0a0;
+  --cor-texto-claro: #666;
+  --cor-borda: #2a2a3e;
+  --cor-sombra: rgba(0, 0, 0, 0.3);
+  --cor-sombra-forte: rgba(0, 0, 0, 0.5);
+  --cor-tag-fundo: #2a2a4e;
+  --cor-tag-texto: #9d97ff;
+  --cor-input-fundo: #1a1a2e;
+  --cor-input-borda: #2a2a3e;
+}
+
+/* ---- Reset e Base ---- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: var(--cor-primaria);
+  transition: color 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ---- Container ---- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---- Seções ---- */
+.secao {
+  padding: 5rem 0;
+}
+
+.secao__titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto);
+}
+
+.secao__subtitulo {
+  color: var(--cor-texto-secundario);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+/* ---- Botões ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn--primario {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.btn--primario:hover {
+  background: var(--cor-primaria-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--cor-sombra-forte);
+}
+
+.btn--secundario {
+  background: transparent;
+  color: var(--cor-primaria);
+  border: 2px solid var(--cor-primaria);
+}
+
+.btn--secundario:hover {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.btn--perigo {
+  background: var(--cor-erro);
+  color: #fff;
+}
+
+.btn--perigo:hover {
+  background: #c0392b;
+}
+
+.btn--pequeno {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* ---- Tags ---- */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--cor-tag-fundo);
+  color: var(--cor-tag-texto);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ---- Loader ---- */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.loader__spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--cor-borda);
+  border-top-color: var(--cor-primaria);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Responsivo ---- */
+@media (max-width: 768px) {
+  .secao {
+    padding: 3rem 0;
+  }
+
+  .secao__titulo {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,47 @@
+/* ============================================
+   Estilos do Rodapé
+   ============================================ */
+.rodape {
+  background: var(--cor-fundo-card);
+  border-top: 1px solid var(--cor-borda);
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.rodape__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.rodape__texto {
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+}
+
+.rodape__links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.rodape__link {
+  color: var(--cor-texto-secundario);
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.rodape__link:hover {
+  color: var(--cor-primaria);
+}
+
+@media (max-width: 768px) {
+  .rodape__container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

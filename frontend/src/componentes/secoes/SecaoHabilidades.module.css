@@ -1,0 +1,66 @@
+/* ============================================
+   Estilos da Seção de Habilidades
+   ============================================ */
+.habilidades {
+  padding: 5rem 0;
+  background: var(--cor-fundo-card);
+}
+
+.habilidades__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.habilidades__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.habilidade {
+  background: var(--cor-fundo);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--cor-borda);
+}
+
+.habilidade__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.habilidade__nome {
+  font-weight: 600;
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+}
+
+.habilidade__porcentagem {
+  font-weight: 700;
+  color: var(--cor-primaria);
+  font-size: 0.9rem;
+}
+
+.habilidade__barra {
+  width: 100%;
+  height: 8px;
+  background: var(--cor-borda);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.habilidade__progresso {
+  height: 100%;
+  background: var(--gradiente-hero);
+  border-radius: 10px;
+  transition: width 1.2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .habilidades__grid {
+    grid-template-columns: 1fr;
+  }
+}

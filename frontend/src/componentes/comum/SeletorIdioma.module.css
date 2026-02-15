@@ -1,0 +1,108 @@
+/* ============================================
+   Estilos do Seletor de Idioma
+   ============================================ */
+.seletor {
+  position: relative;
+  z-index: 1001;
+}
+
+.seletor__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.seletor__btn:hover {
+  border-color: var(--cor-primaria);
+  background: var(--cor-primaria-alpha);
+}
+
+.seletor__bandeira {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.seletor__codigo {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.seletor__seta {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+  color: var(--cor-texto-secundario);
+}
+
+.seletor__seta--aberto {
+  transform: rotate(180deg);
+}
+
+.seletor__dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 200px;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: seletorFadeIn 0.15s ease;
+}
+
+@keyframes seletorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.seletor__opcao {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--cor-texto);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  text-align: left;
+}
+
+.seletor__opcao:hover {
+  background: var(--cor-primaria-alpha, rgba(108, 99, 255, 0.08));
+}
+
+.seletor__opcao--ativo {
+  background: var(--cor-primaria-alpha, rgba(108, 99, 255, 0.12));
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+.seletor__nome {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .seletor__dropdown {
+    right: -1rem;
+    min-width: 180px;
+  }
+}

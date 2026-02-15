@@ -1,0 +1,62 @@
+/* ============================================
+   Estilos da Seção de Publicações
+   ============================================ */
+.publicacoes {
+  padding: 5rem 0;
+  background: var(--cor-fundo-card);
+}
+
+.publicacoes__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.publicacoes__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.publicacao {
+  padding: 1.5rem;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: block;
+  color: var(--cor-texto);
+}
+
+.publicacao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--cor-sombra);
+  border-color: var(--cor-primaria);
+  color: var(--cor-texto);
+}
+
+.publicacao__tipo {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+  background: var(--cor-tag-fundo);
+  color: var(--cor-tag-texto);
+}
+
+.publicacao__titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.publicacao__descricao {
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

@@ -1,0 +1,115 @@
+/* ============================================
+   Estilos do Formulário de Perfil Admin
+   ============================================ */
+.perfil-admin__form {
+  background: var(--cor-fundo-card);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--cor-borda);
+}
+
+.perfil-admin__secao {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--cor-borda);
+}
+
+.perfil-admin__grupo {
+  margin-bottom: 1.25rem;
+}
+
+.perfil-admin__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+}
+
+.perfil-admin__input,
+.perfil-admin__textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--cor-input-borda);
+  border-radius: 10px;
+  background: var(--cor-input-fundo);
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.perfil-admin__input:focus,
+.perfil-admin__textarea:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+.perfil-admin__textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.perfil-admin__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Habilidades */
+.perfil-admin__habilidade {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: var(--cor-fundo);
+  border-radius: 8px;
+}
+
+.perfil-admin__habilidade input {
+  padding: 0.5rem;
+  border: 1px solid var(--cor-input-borda);
+  border-radius: 6px;
+  background: var(--cor-input-fundo);
+  color: var(--cor-texto);
+  font-size: 0.85rem;
+}
+
+.perfil-admin__habilidade input:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+.perfil-admin__remover-btn {
+  background: rgba(231, 76, 60, 0.1);
+  color: var(--cor-erro);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.perfil-admin__remover-btn:hover {
+  background: var(--cor-erro);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .perfil-admin__row {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-admin__habilidade {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-admin__form {
+    padding: 1.5rem;
+  }
+}
