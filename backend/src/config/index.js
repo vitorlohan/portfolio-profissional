@@ -19,8 +19,8 @@ module.exports = {
   adminEmail: process.env.ADMIN_EMAIL || 'admin@portfolio.com',
   adminSenha: process.env.ADMIN_SENHA || 'admin123',
 
-  // CORS
-  frontendUrl: process.env.FRONTEND_URL || 'http://localhost:5173',
+  // CORS (remove barra final para evitar mismatch com o origin do browser)
+  frontendUrl: (process.env.FRONTEND_URL || 'http://localhost:5173').replace(/\/+$/, ''),
 
   // CSRF
   csrfSecret: process.env.CSRF_SECRET || 'csrf_segredo_padrao_dev',
