@@ -7,7 +7,7 @@
       // GitHub Pages SPA redirect — preserva a rota ao recarregar a página
       // Transforma o path em query string e redireciona para index.html
       // que reconstrói a URL original para o React Router processar
-      var pathSegmentsToKeep = 1; // '/portfolio-profissional' = 1 segmento
+      var pathSegmentsToKeep = 0; // raiz do domínio (vitorlohan.github.io)
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +

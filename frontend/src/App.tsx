@@ -34,7 +34,7 @@ const App = () => {
     <IdiomaProvider>
     <TemaProvider>
       <AuthProvider>
-        <BrowserRouter basename="/portfolio-profissional">
+        <BrowserRouter>
           <Toaster
             position="top-right"
             toastOptions={{

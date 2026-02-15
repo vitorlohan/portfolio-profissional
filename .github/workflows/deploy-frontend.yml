@@ -1,5 +1,5 @@
-# Deploy do frontend para GitHub Pages
-# Dispara automaticamente a cada push na branch main
+# Deploy do frontend para vitorlohan.github.io
+# Código-fonte vive em portfolio-profissional, deploy vai para o repo do user site
 name: Deploy Frontend
 
 on:
@@ -9,15 +9,13 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,21 +38,11 @@ jobs:
         env:
           VITE_API_URL: https://portfolio-profissional-dvlh.onrender.com
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to vitorlohan.github.io
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: frontend/dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: vitorlohan/vitorlohan.github.io
+          publish_branch: main
+          publish_dir: frontend/dist
+          cname: ''
