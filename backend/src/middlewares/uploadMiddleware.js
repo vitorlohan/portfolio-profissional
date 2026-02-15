@@ -1,36 +1,21 @@
 // ============================================
-// Middleware de upload de imagens
+// Middleware de upload de imagens (Cloudinary)
 // ============================================
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('../config/cloudinary');
 const config = require('../config');
 
-// Garantir que o diretório de uploads existe
-const criarDiretorio = (dir) => {
-  const caminho = path.join(__dirname, '..', '..', config.uploadDir, dir);
-  if (!fs.existsSync(caminho)) {
-    fs.mkdirSync(caminho, { recursive: true });
-  }
-  return caminho;
-};
-
-// Criar pasta de uploads principal
-criarDiretorio('');
-criarDiretorio('projetos');
-criarDiretorio('perfil');
-
-// Configuração do armazenamento
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const tipo = req.baseUrl.includes('perfil') ? 'perfil' : 'projetos';
-    const destino = path.join(__dirname, '..', '..', config.uploadDir, tipo);
-    cb(null, destino);
-  },
-  filename: (req, file, cb) => {
-    const nomeUnico = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    const extensao = path.extname(file.originalname);
-    cb(null, `${nomeUnico}${extensao}`);
+// Armazenamento no Cloudinary
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: (req, file) => {
+    const pasta = req.baseUrl.includes('perfil') ? 'portfolio/perfil' : 'portfolio/projetos';
+    return {
+      folder: pasta,
+      allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
+      transformation: [{ quality: 'auto', fetch_format: 'auto' }],
+    };
   },
 });
 
@@ -43,7 +28,7 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// Instância do multer
+// Instância do multer com Cloudinary
 const upload = multer({
   storage,
   fileFilter,

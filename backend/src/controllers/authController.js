@@ -14,10 +14,12 @@ const gerarToken = (id) => {
 };
 
 // Opções do cookie httpOnly
+// Em produção, sameSite: 'none' é obrigatório para cross-origin (GitHub Pages ↔ Render)
+// A proteção CSRF é mantida via double-submit cookie + CORS restrito
 const opcoesCookie = () => ({
   httpOnly: true, // Inacessível via JavaScript (protege contra XSS)
   secure: config.nodeEnv === 'production', // HTTPS apenas em produção
-  sameSite: config.nodeEnv === 'production' ? 'strict' : 'lax', // Protege contra CSRF
+  sameSite: config.nodeEnv === 'production' ? 'none' : 'lax',
   maxAge: 24 * 60 * 60 * 1000, // 24 horas (em ms)
   path: '/',
 });
@@ -75,7 +77,7 @@ const logout = (req, res) => {
   res.cookie('portfolio_jwt', '', {
     httpOnly: true,
     secure: config.nodeEnv === 'production',
-    sameSite: config.nodeEnv === 'production' ? 'strict' : 'lax',
+    sameSite: config.nodeEnv === 'production' ? 'none' : 'lax',
     expires: new Date(0), // Expirar imediatamente
     path: '/',
   });

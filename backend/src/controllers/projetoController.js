@@ -207,16 +207,14 @@ const criarProjeto = async (req, res, next) => {
       dados.linksExternos = JSON.parse(dados.linksExternos);
     }
 
-    // Tratar upload de imagem principal
+    // Tratar upload de imagem principal (Cloudinary retorna URL completa)
     if (req.files && req.files.imagemPrincipal) {
-      dados.imagemPrincipal = `/uploads/projetos/${req.files.imagemPrincipal[0].filename}`;
+      dados.imagemPrincipal = req.files.imagemPrincipal[0].path;
     }
 
     // Tratar upload de galeria
     if (req.files && req.files.galeria) {
-      dados.galeriaImagens = req.files.galeria.map(
-        (f) => `/uploads/projetos/${f.filename}`
-      );
+      dados.galeriaImagens = req.files.galeria.map((f) => f.path);
     }
 
     const projeto = await Projeto.create(dados);
@@ -259,16 +257,14 @@ const atualizarProjeto = async (req, res, next) => {
       dados.linksExternos = JSON.parse(dados.linksExternos);
     }
 
-    // Tratar upload de imagem principal
+    // Tratar upload de imagem principal (Cloudinary retorna URL completa)
     if (req.files && req.files.imagemPrincipal) {
-      dados.imagemPrincipal = `/uploads/projetos/${req.files.imagemPrincipal[0].filename}`;
+      dados.imagemPrincipal = req.files.imagemPrincipal[0].path;
     }
 
     // Tratar upload de galeria (adicionar às existentes)
     if (req.files && req.files.galeria) {
-      const novasImagens = req.files.galeria.map(
-        (f) => `/uploads/projetos/${f.filename}`
-      );
+      const novasImagens = req.files.galeria.map((f) => f.path);
       dados.galeriaImagens = [
         ...(projeto.galeriaImagens || []),
         ...novasImagens,

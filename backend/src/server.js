@@ -6,7 +6,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
-const path = require('path');
 
 const config = require('./config');
 const conectarBanco = require('./config/database');
@@ -27,9 +26,12 @@ app.use(helmet({
 app.use(cookieParser());
 
 // ---- CORS ----
+// Em produção: frontend no GitHub Pages, backend no Render (cross-origin)
+// exposedHeaders permite o frontend ler o header X-CSRF-Token na resposta
 app.use(cors({
   origin: config.frontendUrl,
   credentials: true,
+  exposedHeaders: ['X-CSRF-Token'],
 }));
 
 // ---- Rate Limiting (geral) ----
@@ -59,9 +61,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/', definirCsrfCookie);
 // Valida CSRF em requisições que modificam dados (POST, PUT, DELETE)
 app.use('/api/', validarCsrf);
-
-// ---- Arquivos estáticos (uploads) ----
-app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 // ---- Rotas ----
 app.use('/api/auth', authRoutes);

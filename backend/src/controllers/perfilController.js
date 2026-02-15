@@ -58,9 +58,9 @@ const atualizarPerfil = async (req, res, next) => {
       dados.publicacoes = JSON.parse(dados.publicacoes);
     }
 
-    // Tratar upload de avatar
+    // Tratar upload de avatar (Cloudinary retorna URL completa em file.path)
     if (req.file) {
-      dados.avatar = `/uploads/perfil/${req.file.filename}`;
+      dados.avatar = req.file.path;
     }
 
     let perfil = await Perfil.findOne();

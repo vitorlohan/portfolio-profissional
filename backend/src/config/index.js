@@ -25,8 +25,12 @@ module.exports = {
   // CSRF
   csrfSecret: process.env.CSRF_SECRET || 'csrf_segredo_padrao_dev',
 
+  // Cloudinary (armazenamento de imagens na nuvem)
+  cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME,
+  cloudinaryApiKey: process.env.CLOUDINARY_API_KEY,
+  cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET,
+
   // Upload
-  uploadDir: 'uploads',
   maxFileSize: 5 * 1024 * 1024, // 5MB
   allowedMimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
 };

@@ -3,13 +3,12 @@
 // ============================================
 import axios from 'axios';
 
-const API_URL = '/api';
+// Em dev: vazio (proxy do Vite), em prod: URL completa do Render
+const API_URL = `${import.meta.env.VITE_API_URL || ''}/api`;
 
-// Ler cookie por nome (para enviar CSRF token)
-const lerCookie = (nome: string): string | null => {
-  const match = document.cookie.match(new RegExp('(^| )' + nome + '=([^;]+)'));
-  return match ? decodeURIComponent(match[2]) : null;
-};
+// Armazena o token CSRF recebido do backend via response header
+// (em cross-origin, não é possível ler cookies de outro domínio)
+let csrfToken: string | null = null;
 
 const api = axios.create({
   baseURL: API_URL,
@@ -22,7 +21,6 @@ const api = axios.create({
 // Interceptor: enviar token CSRF no header de toda requisição
 api.interceptors.request.use(
   (config) => {
-    const csrfToken = lerCookie('portfolio_csrf');
     if (csrfToken) {
       config.headers['X-CSRF-Token'] = csrfToken;
     }
@@ -31,14 +29,28 @@ api.interceptors.request.use(
   (erro) => Promise.reject(erro)
 );
 
-// Interceptor para tratar erros de autenticação
+// Interceptor de resposta: capturar token CSRF do header + tratar 401
 api.interceptors.response.use(
-  (resposta) => resposta,
+  (resposta) => {
+    // Captura o CSRF token enviado pelo backend no header
+    const novoToken = resposta.headers['x-csrf-token'];
+    if (novoToken) {
+      csrfToken = novoToken;
+    }
+    return resposta;
+  },
   (erro) => {
+    // Captura CSRF token mesmo em respostas de erro
+    const novoToken = erro.response?.headers?.['x-csrf-token'];
+    if (novoToken) {
+      csrfToken = novoToken;
+    }
+
     if (erro.response?.status === 401) {
       // Redirecionar para login se estiver no admin
-      if (window.location.pathname.startsWith('/admin')) {
-        window.location.href = '/admin/login';
+      const basePath = import.meta.env.BASE_URL || '/';
+      if (window.location.pathname.startsWith(`${basePath}admin`)) {
+        window.location.href = `${basePath}admin/login`;
       }
     }
     return Promise.reject(erro);

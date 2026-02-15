@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
+  // Base path para GitHub Pages: https://vitorlohan.github.io/portfolio-profissional/
+  base: '/portfolio-profissional/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -13,10 +15,6 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-      },
-      '/uploads': {
         target: 'http://localhost:5000',
         changeOrigin: true,
       },

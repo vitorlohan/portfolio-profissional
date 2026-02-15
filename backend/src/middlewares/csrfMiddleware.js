@@ -48,12 +48,18 @@ const definirCsrfCookie = (req, res, next) => {
   if (!req.cookies[CSRF_COOKIE_NAME] || !validarTokenCsrf(req.cookies[CSRF_COOKIE_NAME])) {
     const token = gerarTokenCsrf();
     res.cookie(CSRF_COOKIE_NAME, token, {
-      httpOnly: false, // Frontend PRECISA ler este cookie
+      httpOnly: false, // Frontend PRECISA ler este cookie (no mesmo domínio)
       secure: config.nodeEnv === 'production',
-      sameSite: config.nodeEnv === 'production' ? 'strict' : 'lax',
+      sameSite: config.nodeEnv === 'production' ? 'none' : 'lax',
       maxAge: 24 * 60 * 60 * 1000, // 24 horas
       path: '/',
     });
+    // Também envia no header para cenário cross-origin
+    // (frontend em github.io não pode ler cookie de onrender.com)
+    res.setHeader('X-CSRF-Token', token);
+  } else {
+    // Token existente — envia no header para o frontend capturar
+    res.setHeader('X-CSRF-Token', req.cookies[CSRF_COOKIE_NAME]);
   }
   next();
 };

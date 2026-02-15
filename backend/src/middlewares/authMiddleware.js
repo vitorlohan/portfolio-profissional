@@ -38,6 +38,8 @@ const autenticar = async (req, res, next) => {
       // Limpar cookie expirado
       res.cookie('portfolio_jwt', '', {
         httpOnly: true,
+        secure: config.nodeEnv === 'production',
+        sameSite: config.nodeEnv === 'production' ? 'none' : 'lax',
         expires: new Date(0),
         path: '/',
       });
