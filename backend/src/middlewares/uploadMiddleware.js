@@ -10,7 +10,7 @@ const config = require('../config');
 const storage = new CloudinaryStorage({
   cloudinary,
   params: (req, file) => {
-    const pasta = req.baseUrl.includes('perfil') ? 'portfolio/perfil' : 'portfolio/projetos';
+    const pasta = req.baseUrl.includes('perfil') ? 'portfolio/avatar' : 'portfolio/projetos';
     return {
       folder: pasta,
       allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
