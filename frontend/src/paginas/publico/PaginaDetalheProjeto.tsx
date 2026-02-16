@@ -177,7 +177,7 @@ const PaginaDetalheProjeto = () => {
         {(projeto.linksExternos?.github ||
           projeto.linksExternos?.site ||
           projeto.linksExternos?.aplicativo ||
-          projeto.linksExternos?.outros?.length) && (
+          projeto.linksExternos?.outros?.length > 0) && (
           <div className={styles.detalhe__secao}>
             <h2>{t('detalhe.links')}</h2>
             <div className={styles.detalhe__links}>
