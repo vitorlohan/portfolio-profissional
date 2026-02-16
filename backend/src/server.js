@@ -17,6 +17,10 @@ const { definirCsrfCookie, validarCsrf } = require('./middlewares/csrfMiddleware
 
 const app = express();
 
+// ---- Trust Proxy (obrigatório no Render/Heroku/etc) ----
+// O Render usa reverse proxy — sem isso, express-rate-limit não identifica IPs corretamente
+app.set('trust proxy', 1);
+
 // ---- Segurança ----
 app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' },
@@ -37,7 +41,9 @@ app.use(cors({
 // ---- Rate Limiting (geral) ----
 const limitador = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100,
+  max: 300, // SPA faz múltiplas chamadas por página
+  standardHeaders: true,
+  legacyHeaders: false,
   message: { erro: 'Muitas requisições. Tente novamente mais tarde.' },
 });
 app.use('/api/', limitador);
@@ -45,10 +51,10 @@ app.use('/api/', limitador);
 // ---- Rate Limiting (login - mais rigoroso) ----
 const limitadorLogin = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 5, // máximo 5 tentativas de login
-  message: { erro: 'Muitas tentativas de login. Tente novamente em 15 minutos.' },
+  max: 10, // máximo 10 tentativas de login
   standardHeaders: true,
   legacyHeaders: false,
+  message: { erro: 'Muitas tentativas de login. Tente novamente em 15 minutos.' },
 });
 app.use('/api/auth/login', limitadorLogin);
 

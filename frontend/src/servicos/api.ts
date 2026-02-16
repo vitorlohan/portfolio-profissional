@@ -47,10 +47,10 @@ api.interceptors.response.use(
     }
 
     if (erro.response?.status === 401) {
-      // Redirecionar para login se estiver no admin
-      const basePath = import.meta.env.BASE_URL || '/';
-      if (window.location.pathname.startsWith(`${basePath}admin`)) {
-        window.location.href = `${basePath}admin/login`;
+      // Redirecionar para login se estiver no admin (mas NÃO se já está na página de login)
+      const path = window.location.pathname;
+      if (path.includes('/admin') && !path.includes('/admin/login')) {
+        window.location.href = '/admin/login';
       }
     }
     return Promise.reject(erro);
