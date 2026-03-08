@@ -3,47 +3,56 @@
    ============================================ */
 
 /* ---- Variáveis de Tema ---- */
+
+/* ===== Tema Claro — Branco, Cinza e Azul ===== */
 :root,
 [data-tema="claro"] {
-  --cor-primaria: #6c63ff;
-  --cor-primaria-hover: #5a52d5;
-  --cor-secundaria: #ff6584;
-  --cor-fundo: #f8f9fa;
+  --cor-primaria: #2563eb;
+  --cor-primaria-hover: #1d4ed8;
+  --cor-primaria-alpha: rgba(37, 99, 235, 0.1);
+  --cor-secundaria: #3b82f6;
+  --cor-fundo: #f8fafc;
   --cor-fundo-card: #ffffff;
-  --cor-fundo-nav: rgba(255, 255, 255, 0.95);
-  --cor-texto: #2d3436;
-  --cor-texto-secundario: #636e72;
-  --cor-texto-claro: #b2bec3;
-  --cor-borda: #e0e0e0;
-  --cor-sombra: rgba(0, 0, 0, 0.08);
-  --cor-sombra-forte: rgba(0, 0, 0, 0.15);
-  --cor-sucesso: #00b894;
-  --cor-erro: #e74c3c;
-  --cor-aviso: #fdcb6e;
-  --cor-tag-fundo: #f0efff;
-  --cor-tag-texto: #6c63ff;
+  --cor-fundo-nav: rgba(255, 255, 255, 0.92);
+  --cor-texto: #1e293b;
+  --cor-texto-secundario: #64748b;
+  --cor-texto-claro: #94a3b8;
+  --cor-borda: #e2e8f0;
+  --cor-sombra: rgba(0, 0, 0, 0.06);
+  --cor-sombra-forte: rgba(0, 0, 0, 0.12);
+  --cor-sucesso: #10b981;
+  --cor-erro: #ef4444;
+  --cor-aviso: #f59e0b;
+  --cor-tag-fundo: #eff6ff;
+  --cor-tag-texto: #2563eb;
   --cor-input-fundo: #ffffff;
-  --cor-input-borda: #ddd;
-  --gradiente-hero: linear-gradient(135deg, #6c63ff 0%, #ff6584 100%);
+  --cor-input-borda: #cbd5e1;
+  --gradiente-hero: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
 }
 
+/* ===== Tema Escuro — Dracula ===== */
 [data-tema="escuro"] {
-  --cor-primaria: #7c75ff;
-  --cor-primaria-hover: #6c63ff;
-  --cor-secundaria: #ff6584;
-  --cor-fundo: #0f0f23;
-  --cor-fundo-card: #1a1a2e;
-  --cor-fundo-nav: rgba(15, 15, 35, 0.95);
-  --cor-texto: #e0e0e0;
-  --cor-texto-secundario: #a0a0a0;
-  --cor-texto-claro: #666;
-  --cor-borda: #2a2a3e;
-  --cor-sombra: rgba(0, 0, 0, 0.3);
-  --cor-sombra-forte: rgba(0, 0, 0, 0.5);
-  --cor-tag-fundo: #2a2a4e;
-  --cor-tag-texto: #9d97ff;
-  --cor-input-fundo: #1a1a2e;
-  --cor-input-borda: #2a2a3e;
+  --cor-primaria: #bd93f9;
+  --cor-primaria-hover: #caa8ff;
+  --cor-primaria-alpha: rgba(189, 147, 249, 0.12);
+  --cor-secundaria: #ff79c6;
+  --cor-fundo: #282a36;
+  --cor-fundo-card: #44475a;
+  --cor-fundo-nav: rgba(40, 42, 54, 0.95);
+  --cor-texto: #f8f8f2;
+  --cor-texto-secundario: #8b95c9;
+  --cor-texto-claro: #6272a4;
+  --cor-borda: #6272a4;
+  --cor-sombra: rgba(0, 0, 0, 0.35);
+  --cor-sombra-forte: rgba(0, 0, 0, 0.55);
+  --cor-sucesso: #50fa7b;
+  --cor-erro: #ff5555;
+  --cor-aviso: #f1fa8c;
+  --cor-tag-fundo: rgba(189, 147, 249, 0.15);
+  --cor-tag-texto: #bd93f9;
+  --cor-input-fundo: #282a36;
+  --cor-input-borda: #6272a4;
+  --gradiente-hero: linear-gradient(135deg, #bd93f9 0%, #ff79c6 100%);
 }
 
 /* ---- Reset e Base ---- */
@@ -165,7 +174,7 @@ input, textarea, select {
 }
 
 .btn--perigo:hover {
-  background: #c0392b;
+  background: #dc2626;
 }
 
 .btn--pequeno {

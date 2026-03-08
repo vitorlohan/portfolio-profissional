@@ -87,11 +87,11 @@
 }
 
 .seletor__opcao:hover {
-  background: var(--cor-primaria-alpha, rgba(108, 99, 255, 0.08));
+  background: var(--cor-primaria-alpha);
 }
 
 .seletor__opcao--ativo {
-  background: var(--cor-primaria-alpha, rgba(108, 99, 255, 0.12));
+  background: var(--cor-primaria-alpha);
   color: var(--cor-primaria);
   font-weight: 600;
 }
