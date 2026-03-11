@@ -36,7 +36,7 @@ jobs:
         working-directory: frontend
         run: npm run build
         env:
-          VITE_API_URL: https://portfolio-profissional-dvlh.onrender.com
+          VITE_API_URL: https://visitante.dimeexperience.com.br/projetos
 
       - name: Deploy to vitorlohan.github.io
         uses: peaceiris/actions-gh-pages@v4
@@ -45,4 +45,4 @@ jobs:
           external_repository: vitorlohan/vitorlohan.github.io
           publish_branch: main
           publish_dir: frontend/dist
-          cname: ''
+          cname: ""
